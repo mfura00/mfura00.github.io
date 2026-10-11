@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090b12">
+<meta name="description" content="Personal portfolio of a developer, technology enthusiast, and lifelong learner building useful digital experiences.">
+<title>Chill — Developer Portfolio</title>
+<style>
+:root {
+  color-scheme: dark;
+  --bg: #090b12;
+  --surface: #111521;
+  --surface2: #171d2b;
+  --text: #f5f7ff;
+  --muted: #a6afc4;
+  --line: #252c3d;
+  --accent: #8b7cff;
+  --accent2: #53d6c5;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  line-height: 1.6;
+}
+a { color: inherit; text-decoration: none; }
+button { font: inherit; }
+.wrap { width: min(1080px, calc(100% - 40px)); margin: auto; }
+nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 22px 0; border-bottom: 1px solid var(--line);
+}
+.logo { font-size: 1.3rem; font-weight: 850; letter-spacing: -.06em; display: flex; align-items: center; gap: 10px; }
+.logo-mark { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 12px; background: linear-gradient(135deg,var(--accent),#4c9cff); color: white; }
+.navlinks { display: flex; gap: 26px; align-items: center; color: var(--muted); font-size: .9rem; }
+.menu { display: none; border: 1px solid var(--line); background: var(--surface); color: var(--text); border-radius: 10px; padding: 8px 12px; }
+.hero { display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; gap: 54px; padding: 80px 0; }
+.eyebrow { display: inline-flex; align-items: center; gap: 9px; border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 7px 12px; color: var(--muted); font-size: .78rem; text-transform: uppercase; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent2); }
+h1 { font-size: clamp(2.7rem,6.5vw,5.5rem); letter-spacing: -.075em; line-height: 1.02; margin: 22px 0; }
+.gradient { background: linear-gradient(100deg,#a99aff,#62c9ff,#53d6c5); color: transparent; background-clip: text; -webkit-background-clip: text; }
+.lead { color: var(--muted); font-size: 1.08rem; max-width: 570px; }
+.actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 25px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 18px; border-radius: 12px; border: 1px solid var(--line); font-weight: 700; font-size: .92rem; }
+.btn.primary { background: linear-gradient(120deg,#8b7cff,#5b9dff); color: white; border: 0; }
+.hero-art { min-height: 330px; position: relative; display: grid; place-items: center; }
+.orb { width: min(290px,70vw); aspect-ratio: 1; border-radius: 42%; background: radial-gradient(circle at 30% 25%,#c7bcff,transparent 28%),radial-gradient(circle at 68% 65%,#52d8c5,transparent 30%),linear-gradient(135deg,#6654d9,#273c88 55%,#151d3c); box-shadow: 0 0 100px #7869ff2b; animation: float 7s ease-in-out infinite; }
+.orbit { position: absolute; width: 340px; height: 340px; max-width: 95%; border: 1px solid #8b7cff55; border-radius: 50%; transform: rotate(-24deg) scaleY(.62); }
+.orbit.two { width: 380px; height: 380px; transform: rotate(55deg) scaleY(.55); border-color: #53d6c544; }
+.tag { position: absolute; padding: 9px 13px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); font-size: .8rem; font-weight: 700; }
+.tag.one { top: 16%; left: 0; }
+.tag.two { right: 0; top: 30%; }
+.tag.three { bottom: 12%; left: 12%; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-12px) rotate(5deg); } }
+section { padding: 55px 0; }
+.section-head { display: flex; justify-content: space-between; gap: 20px; align-items: end; margin-bottom: 26px; }
+.kicker { color: var(--accent); font-size: .78rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
+h2 { font-size: clamp(1.8rem,4vw,2.7rem); letter-spacing: -.055em; line-height: 1.1; margin: 8px 0 0; }
+.section-desc { color: var(--muted); max-width: 480px; }
+.cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 23px; }
+.card-icon { width: 46px; height: 46px; display: grid; place-items: center; border-radius: 14px; background: var(--surface2); font-size: 1.35rem; margin-bottom: 22px; }
+.card h3 { margin: 0 0 8px; }
+.card p, .panel p, .contact p { color: var(--muted); }
+.pills, .skills { display: flex; gap: 8px; flex-wrap: wrap; }
+.pill, .skill { border: 1px solid var(--line); color: var(--muted); padding: 6px 9px; border-radius: 8px; font-size: .78rem; }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.panel { padding: 28px; border-radius: 20px; border: 1px solid var(--line); background: var(--surface); }
+.skills { margin-top: 20px; }
+.skill { background: var(--surface2); padding: 10px 13px; font-size: .88rem; }
+.values { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px; }
+.value { background: var(--surface2); border-radius: 13px; padding: 13px; font-size: .9rem; font-weight: 650; }
+.contact { background: linear-gradient(130deg,#8b7cff18,#53d6c515); border: 1px solid var(--line); border-radius: 24px; padding: 34px; }
+.note { font-size: .8rem; color: var(--muted); margin-top: 14px; }
+footer { padding: 28px 0 34px; margin-top: 30px; border-top: 1px solid var(--line); color: var(--muted); display: flex; justify-content: space-between; gap: 14px; font-size: .85rem; }
+.socials { display: flex; gap: 17px; }
+@media(max-width:760px) {
+  .hero { grid-template-columns: 1fr; gap: 20px; padding: 50px 0; }
+  .hero-art { min-height: 270px; grid-row: 1; }
+  .orb { width: 220px; }
+  .orbit { width: 280px; height: 280px; }
+  .orbit.two { width: 310px; height: 310px; }
+  .cards, .about-grid { grid-template-columns: 1fr; }
+  .section-head { display: block; }
+  .navlinks { display: none; flex-direction: column; position: absolute; top: 75px; right: 20px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px; z-index: 5; }
+  .navlinks.open { display: flex; }
+  .menu { display: block; }
+  footer { flex-direction: column; }
+}
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after { scroll-behavior: auto!important; animation: none!important; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav aria-label="Main navigation">
+    <a class="logo" href="#home"><span class="logo-mark">C.</span><span>chill<span class="gradient">.dev</span></span></a>
+    <div class="navlinks" id="navlinks">
+      <a href="#about">About</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
+    </div>
+    <button class="menu" id="menu" aria-expanded="false" aria-controls="navlinks">Menu ☰</button>
+  </nav>
+  <main>
+    <section class="hero" id="home">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> Programmer · Tech enthusiast</div>
+        <h1>Building ideas<br>into <span class="gradient">reality.</span></h1>
+        <p class="lead">Hey, I'm Chill — a developer and lifelong learner exploring technology, building useful digital projects, and growing one line of code at a time.</p>
+        <div class="actions"><a class="btn primary" href="#projects">Explore my work ↗</a><a class="btn" href="#contact">Let's connect →</a></div>
+        <p class="note">Faith. Focus. Keep building. ✦</p>
+      </div>
+      <div class="hero-art" role="img" aria-label="Abstract technology artwork">
+        <div class="orbit"></div><div class="orbit two"></div><div class="orb"></div>
+        <div class="tag one">⌘ Build</div><div class="tag two">✦ Learn</div><div class="tag three">{} Create</div>
+      </div>
+    </section>
+    <section id="projects">
+      <div class="section-head"><div><div class="kicker">Selected work</div><h2>Projects I'm building</h2></div><p class="section-desc">A few ideas I'm turning into real products. This portfolio can grow as I ship more work.</p></div>
+      <div class="cards">
+        <article class="card"><div class="card-icon">🚌</div><h3>GoBus Rwanda</h3><p>A digital ticketing concept for intercity buses, with mobile-friendly tickets and a path toward USSD access.</p><div class="pills"><span class="pill">Spring Boot</span><span class="pill">Java</span><span class="pill">PostgreSQL</span></div></article>
+        <article class="card"><div class="card-icon">✦</div><h3>ANICE Assistant</h3><p>A modular personal assistant project designed to grow toward a helpful desktop companion.</p><div class="pills"><span class="pill">Python</span><span class="pill">AI</span><span class="pill">Testing</span></div></article>
+        <article class="card"><div class="card-icon">▣</div><h3>ClassGram</h3><p>A student-focused social platform idea for sharing class updates and building a connected learning community.</p><div class="pills"><span class="pill">Web development</span><span class="pill">Database</span></div></article>
+      </div>
+      <p class="note">Project descriptions summarize work in progress. Add live demos or repositories when you're ready.</p>
+    </section>
+    <section id="about">
+      <div class="section-head"><div><div class="kicker">A little about me</div><h2>Curious by nature.<br>Builder by choice.</h2></div></div>
+      <div class="about-grid">
+        <div class="panel"><h3>My journey</h3><p>I'm learning software from the inside out — writing code, designing websites, working with databases, networking, and exploring AI. I care about making technology practical and useful.</p><p>I'm here to learn, build, improve, and share the journey.</p></div>
+        <div class="panel" id="skills"><h3>What I'm exploring</h3><p>My toolkit grows with every project. These are areas I work with or am learning.</p><div class="skills"><span class="skill">HTML & CSS</span><span class="skill">JavaScript</span><span class="skill">Python</span><span class="skill">Java</span><span class="skill">Spring Boot</span><span class="skill">SQL & databases</span><span class="skill">Networking</span><span class="skill">Machine learning</span></div></div>
+      </div>
+      <div class="values"><div class="value">🙏 Faith keeps me grounded</div><div class="value">🧠 Always stay curious</div><div class="value">🛠️ Build with purpose</div><div class="value">🌱 Progress over perfection</div></div>
+    </section>
+    <section id="contact">
+      <div class="contact"><div><div class="kicker">Have an idea?</div><h2>Let's make something useful.</h2><p>Open to connecting with fellow learners, developers, and people who believe in building good things with technology.</p></div>
+        <div class="actions"><a class="btn primary" href="https://www.instagram.com/is_m.f.u.r.a/" target="_blank" rel="noopener noreferrer">Find me on Instagram ↗</a><a class="btn" href="mailto:mfurakevin00@gmail.com">Email me ↗</a><a class="btn" href="https://github.com/mfura00" target="_blank" rel="noopener noreferrer">Visit my GitHub ↗</a></div>
+      </div>
+      <p class="note">Connect with me on Instagram, email, or GitHub.</p>
+    </section>
+  </main>
+  <footer><span>© <span id="year"></span> Chill. Made with curiosity and code.</span><div class="socials"><a href="#home">Back to top ↑</a><a href="#projects">Projects</a></div></footer>
+</div>
+<script>
+const menu = document.getElementById('menu');
+const links = document.getElementById('navlinks');
+menu.addEventListener('click', () => {
+  const open = links.classList.toggle('open');
+  menu.setAttribute('aria-expanded', String(open));
+});
+links.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+  links.classList.remove('open');
+  menu.setAttribute('aria-expanded', 'false');
+}));
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
